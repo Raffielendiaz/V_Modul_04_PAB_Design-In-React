@@ -1,19 +1,55 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  View,
+  SafeAreaView,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+} from "react-native";
 
-const FlexDirectionBasics = () => {
-  const [flexDirection, setflexDirection] = useState("column");
+const PositionLayout = () => {
+  const [position, setPosition] = useState("relative");
 
   return (
     <PreviewLayout
-      label="flexDirection"
-      values={["column", "row", "row-reverse", "column-reverse"]}
-      selectedValue={flexDirection}
-      setSelectedValue={setflexDirection}
+      label="position"
+      selectedValue={position}
+      values={["relative", "absolute"]}
+      setSelectedValue={setPosition}
     >
-      <View style={[styles.box, { backgroundColor: "powderblue" }]} />
-      <View style={[styles.box, { backgroundColor: "skyblue" }]} />
-      <View style={[styles.box, { backgroundColor: "steelblue" }]} />
+      <View
+        style={[
+          styles.box,
+          {
+            top: 25,
+            left: 25,
+            position,
+            backgroundColor: "powderblue",
+          },
+        ]}
+      />
+      <View
+        style={[
+          styles.box,
+          {
+            top: 50,
+            left: 50,
+            position,
+            backgroundColor: "skyblue",
+          },
+        ]}
+      />
+      <View
+        style={[
+          styles.box,
+          {
+            top: 75,
+            left: 75,
+            position,
+            backgroundColor: "steelblue",
+          },
+        ]}
+      />
     </PreviewLayout>
   );
 };
@@ -45,9 +81,7 @@ const PreviewLayout = ({
         </TouchableOpacity>
       ))}
     </View>
-    <View style={[styles.container, { [label]: selectedValue }]}>
-      {children}
-    </View>
+    <View style={styles.container}>{children}</View>
   </View>
 );
 
@@ -56,6 +90,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 8,
     backgroundColor: "aliceblue",
+    minHeight: 200,
   },
   box: {
     width: 50,
@@ -95,4 +130,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FlexDirectionBasics;
+export default PositionLayout;

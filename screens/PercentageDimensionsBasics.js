@@ -1,27 +1,26 @@
 import React from "react";
 import { View } from "react-native";
 
-const FixedDimensionsBasics = () => {
+const PercentageDimensionsBasics = () => {
   return (
-    <View>
+    <View style={{ height: "100%" }}>
       <View
         style={{
-          width: 50,
-          height: 50,
+          height: "15%",
           backgroundColor: "powderblue",
         }}
       />
       <View
         style={{
-          width: 100,
-          height: 100,
+          width: "66%",
+          height: "35%",
           backgroundColor: "skyblue",
         }}
       />
       <View
         style={{
-          width: 150,
-          height: 150,
+          width: "33%",
+          height: "50%",
           backgroundColor: "steelblue",
         }}
       />
@@ -29,4 +28,4 @@ const FixedDimensionsBasics = () => {
   );
 };
 
-export default FixedDimensionsBasics;
+export default PercentageDimensionsBasics;
